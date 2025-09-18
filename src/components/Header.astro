@@ -1,0 +1,174 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<header>
+  <nav class="main-header" role="navigation">
+    <div class="hamburger" aria-label="Open Menu" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <h2 class="logo"><a href="/">{SITE_TITLE}</a></h2>
+    <nav class="internal-links menu" role="navigation">
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/services">Services</HeaderLink>
+      <HeaderLink href="/contact">Contact</HeaderLink>
+      <HeaderLink href="/about">About</HeaderLink>
+    </nav>    
+  </nav>
+</header>
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const menu = document.querySelector(".menu");
+
+  hamburger?.addEventListener("click", () => {
+    menu?.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
+
+  hamburger?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      menu?.classList.toggle("active");
+      hamburger.classList.toggle("active");
+    }
+  });
+</script>
+<style>
+  header {
+    margin: 0;
+    padding: 10px 1.8em;
+    color: #fff;
+    box-shadow: 0 2px 4px #fff;
+    background: linear-gradient(rgb(73, 90, 134)) no-repeat;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .hamburger {
+    display: none;
+  }
+  h2 {
+    margin: 0;
+    font-size: 1em;
+  }
+
+  h2 a,
+  h2 a.active {
+    text-decoration: none;
+  }
+  .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & > * {
+      min-width: 150px;
+      place-content: center;
+    }
+  }
+  .main-header a {
+    padding: 0.5em;
+    color: hsla(var(--font-color), 1);
+    fill: hsla(var(--font-color), 1);
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+  }
+  .main-header a.active {
+    text-decoration: none;
+    border-bottom-color: var(--accent);
+  }
+
+  .main-header a:hover,
+  .social-links a:hover {
+    color: hsla(var(--font-dark), 1);
+    fill: hsla(var(--font-dark), 1);
+  }
+  .social-links,
+  .social-links a {
+    display: flex;
+  }
+  @media (max-width: 720px) {
+    .main-header .menu a {
+      box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+      width: 85%;
+      &.active {
+        border-bottom-color: transparent;
+      }
+    }
+
+    .main-header {
+      .social-links {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        min-width: unset;
+      }
+      .logo {
+        position: absolute;
+        right: 50%;
+        transform: translateX(50%);
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: -100px;
+        left: 0;
+        opacity: 0;
+        padding-block: 1em;
+
+        &.active {
+          display: flex;
+          animation: slide-in 0.5s ease forwards;
+          flex-direction: column;
+          background: hsla(46.67, 14.75%, 88.04%, 1);
+          padding-inline: 1em;
+          gap: 1em;
+          box-shadow: 0 2px 8px rgba(var(--gray), 15%);
+          z-index: 1000;
+        }
+      }
+    }
+
+    .main-header > .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+      margin-block: 15px;
+      min-width: unset;
+
+      span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: hsla(var(--font-color), 1);
+        border-radius: 2px;
+        pointer-events: none;
+      }
+
+      &.active {
+        outline: 2px solid hsla(var(--font-dark), 1);
+        border-radius: 5px;
+        span {
+          background-color: hsla(var(--font-dark), 1);
+        }
+      }
+    }
+
+    @keyframes slide-in {
+      from {
+        top: 0;
+        opactity: 0;
+      }
+
+      to {
+        top: 60px;
+        opacity: 1;
+      }
+    }
+  }
+</style>

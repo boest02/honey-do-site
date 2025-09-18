@@ -1,0 +1,15 @@
+---
+const {
+  title = "Turning honey-do into honey-done",
+  description = "From squeaky doors to smart home setups — local, reliable help for all your home and tech needs.",
+} = Astro.props;
+---
+
+<div class="flex flex-col items-center p-8 rounded-lg">
+  <h1
+    class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400 mb-4"
+  >
+    {title}
+  </h1>
+  <p class="text-xl text-gray-300">{description}</p>
+</div>
