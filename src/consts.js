@@ -3,4 +3,8 @@
 
 export const SITE_TITLE = 'Honey-Do Heroes';
 export const SITE_EMAIL = 'herosofhoneydo@gmail.com';
-export const SITE_DESCRIPTION = 'Welcome to Honey Do Heros: Turning honey-do into honey-done';
+export const SITE_DESCRIPTION = "Welcome to Honey Do Hero's: Turning honey-do into honey-done";
+export const SITE_TOWN = 'Floral Park, NY';
+export const SITE_REGION = 'Nassau & Suffolk County';
+export const SITE_COUNTRY = 'USA';
+export const SITE_PHONE = '516-220-4640';

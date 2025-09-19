@@ -1,12 +1,11 @@
 ---
 const today = new Date();
-import { SITE_EMAIL } from "../consts";
+import { SITE_EMAIL, SITE_REGION, SITE_PHONE } from "../consts";
 ---
 
 <footer>
   <div>
-    &copy; {today.getFullYear()} Honey-Do Heroes, Floral Park NY • Call us: (516)
-    220-4640
+    &copy; {today.getFullYear()} Honey-Do Heroes, {SITE_REGION} • Call us: {SITE_PHONE}
   </div>
   <div><a href={"mailto:" + SITE_EMAIL}>{SITE_EMAIL}</a></div>
   <div>All rights reserved.</div>
