@@ -1,0 +1,17 @@
+---
+import "../styles/list.css";
+
+const {
+  title = "Default",
+  list = [],
+} = Astro.props;
+---
+
+<section class="list-section">
+  <h2 class="title">{title}</h2>
+  <ul>
+    {list.map((item) => (
+      <li class="list-item">{item}</li>
+    ))}
+  </ul>
+</section>

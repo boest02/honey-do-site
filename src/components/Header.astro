@@ -1,7 +1,9 @@
 ---
-import '../styles/header.css';
+import "../styles/header.css";
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
+import { Image } from "astro:assets";
+import Logo from "../images/HDH_Logo.png";
 ---
 
 <header class="site-header">
@@ -11,7 +13,11 @@ import { SITE_TITLE } from "../consts";
       <span></span>
       <span></span>
     </div>
-    <h2 class="logo"><a href="/">{SITE_TITLE}</a></h2>
+    <h2 class="logo">
+      <a href="/">
+        <Image src={Logo} alt="logo for honey do heroes" />
+      </a>
+    </h2>
     <nav class="internal-links menu" role="navigation">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/services">Services</HeaderLink>
@@ -36,4 +42,3 @@ import { SITE_TITLE } from "../consts";
     }
   });
 </script>
-

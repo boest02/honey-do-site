@@ -1,0 +1,84 @@
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 35vh;
+    text-align: center;
+    max-width: 800px;
+    margin: 3rem auto;
+    background: linear-gradient(135deg, #939393 0%, #262627 100%);
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 10px 15px 15px 5px rgba(0, 0, 0, 0.21);
+
+    h2 {
+        font-size: 2.3rem;
+        color: #fff;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 95%;
+        margin: 20px auto;
+
+        label {
+            font-size: 1.2rem;
+        }
+
+        input,
+        textarea {
+            width: 95%;
+            border-radius: 5px;
+            min-height: 30px;
+            padding: 5px 10px;
+            color: #000;
+            font-size: 1.1rem;
+        }
+
+        button {
+            font-size: 1.3rem;
+            margin: 10px auto;
+            padding: 10px 50px;
+            width: fit-content;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000;
+            transition: all 0.3s ease;
+
+            &:hover {
+                font-weight: bold;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+
+    @media (max-width: 720px) {
+        width: 95%;
+        padding: 2rem 0;
+        margin: 2rem auto;
+
+        form {
+            width: 90%;
+
+            input,
+            textarea {
+                width: 93%;
+            }
+        }
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

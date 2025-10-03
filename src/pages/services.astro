@@ -1,32 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import List from "../components/List.astro";
+
+const fixesList = [
+  "Drywall repair",
+  "Painting & touch-ups",
+  "Doors, locks, and trim",
+  "Small renovations",
+];
+
+const houseMaintenanceList = [
+  "Power washing",
+  "Gutter cleaning",
+  "Basic landscaping",
+  "Furniture assembly",
+];
+
+const techList = [
+  "TV & entertainment center setup",
+  "Wi-Fi optimization & mesh installation",
+  "Smart thermostats, plugs, lights",
+  "Video doorbells & cameras",
+];
 ---
 
 <Layout title="Services - Honey-Do Heroes">
-  <Hero title="Our Services" />
+  <Hero title="Our Services">
+    <p>
+      At Honey-Do Heroes, we tackle a wide range of household projects... from
+      everyday fix-it chores to tech-savvy home upgrades. The list below
+      highlights some of the most common services we provide, but it’s by no
+      means everything we can do.
+    </p>
+    <p>
+      If you don’t see exactly what you’re looking for, don’t worry, give us a
+      call or send us an email, and we’ll be happy to let you know if it’s
+      something we can help with.
+    </p>
+  </Hero>
 
-  <section class="max-w-4xl w-full p-8 mt-10 rounded-xl bg-gray-800 shadow-lg">
-    <h2 class="text-3xl font-bold mb-4 text-center text-blue-400">
-      Household Fixes
-    </h2>
-    <ul class="text-center text-lg text-gray-300">
-      <li>Drywall repair</li>
-      <li>Painting & touch-ups</li>
-      <li>Doors, locks, and trim</li>
-      <li>Small renovations</li>
-    </ul>
+  <section>
+    <List title="Household Fixes" list={fixesList} />
   </section>
 
-  <section class="max-w-4xl w-full p-8 mt-10 rounded-xl bg-gray-800 shadow-lg">
-    <h2 class="text-3xl font-bold mb-4 text-center text-blue-400">
-      Technical Tasks
-    </h2>
-    <ul class="text-center text-lg text-gray-300">
-      <li>TV & entertainment center setup</li>
-      <li>Wi-Fi optimization & mesh installation</li>
-      <li>Smart thermostats, plugs, lights</li>
-      <li>Video doorbells & cameras</li>
-    </ul>
+  <section>
+    <List title="Household Maintenance" list={houseMaintenanceList} />
+  </section>
+
+  <section>
+    <List title="Technical Tasks" list={techList} />
   </section>
 </Layout>
