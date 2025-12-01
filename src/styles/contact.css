@@ -6,11 +6,12 @@
     text-align: center;
     max-width: 800px;
     margin: 3rem auto;
-    background: linear-gradient(135deg, #939393 0%, #262627 100%);
+    background: linear-gradient(80deg, rgba(0, 0, 0, 0.41) 40%, rgb(22, 82, 116, 0.75) 60%);
+    
     color: white;
     text-align: center;
     padding: 3rem 2rem;
-    border-radius: 1rem;
+    border-radius: 1px;
     box-shadow: 10px 15px 15px 5px rgba(0, 0, 0, 0.21);
 
     h2 {

@@ -4,7 +4,7 @@ import { SITE_EMAIL, SITE_REGION, SITE_PHONE } from "../consts";
 ---
 
 <footer>
-  <div class="footer-main">    
+  <div class="footer-main">
     <a
       href={"tel:+1" + SITE_PHONE}
       aria-label={"Call Honey-Do Heroes at" + SITE_PHONE}
@@ -36,18 +36,37 @@ import { SITE_EMAIL, SITE_REGION, SITE_PHONE } from "../consts";
 </footer>
 <style>
   footer {
+    position: relative;
     padding: 2em 1em;
-    background: linear-gradient(#000) no-repeat;
+    background: linear-gradient(5deg, transparent 0%, #165274 100%);
     color: #fff;
     text-align: center;
     font-size: 1rem;
+    margin: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      /* top:0; right:0; bottom:0; left:0 */
+      pointer-events: none;
+      background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.85) 0%,
+          rgba(0, 0, 0, 0) 38%
+        ),
+        linear-gradient(-90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 38%);
+      /* tweak the 18% to widen/narrow the transparent center */
+      mix-blend-mode: normal;
+      z-index: 1;
+    }
 
     .footer-main {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 10px 30px;
-      margin-bottom: 0.5em;
+      padding-bottom: 0.5em;
     }
 
     & > * {

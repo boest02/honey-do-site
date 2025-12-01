@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import List from "../components/List.astro";
 
+import { allServices } from "../data/services.js";
+
 const fixesList = [
   "Drywall repair",
   "Painting & touch-ups",
@@ -23,32 +25,36 @@ const techList = [
   "Smart thermostats, plugs, lights",
   "Video doorbells & cameras",
 ];
+
+const groupBy = (list, key) => {
+  return list.reduce((groups, item) => {
+    const value = item[key];
+    (groups[value] ||= []).push(item);
+    return groups;
+  }, {});
+};
+
+const groupedServices = groupBy(allServices, "type");
 ---
 
 <Layout title="Services - Honey-Do Heroes">
   <Hero title="Our Services">
     <p>
-      At Honey-Do Heroes, we tackle a wide range of household projects... from
-      everyday fix-it chores to tech-savvy home upgrades. The list below
-      highlights some of the most common services we provide, but it’s by no
-      means everything we can do.
+      At Honey-Do Heroes, we handle a wide range of household projects, from
+      everyday fixes to smart home upgrades. The list below covers many of our
+      most common services, but it’s far from everything we offer.
     </p>
     <p>
-      If you don’t see exactly what you’re looking for, don’t worry, give us a
-      call or send us an email, and we’ll be happy to let you know if it’s
-      something we can help with.
+      If you don’t see what you need, no problem. Give us a call or send us an
+      email, and we’ll let you know how we can help.
     </p>
   </Hero>
 
-  <section>
-    <List title="Household Fixes" list={fixesList} />
-  </section>
-
-  <section>
-    <List title="Household Maintenance" list={houseMaintenanceList} />
-  </section>
-
-  <section>
-    <List title="Technical Tasks" list={techList} />
-  </section>
+  {
+    Object.keys(groupedServices).map((item) => {
+      return (
+        <List title={"Service Type: " + item} list={groupedServices[item]} />
+      );
+    })
+  }
 </Layout>

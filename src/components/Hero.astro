@@ -4,10 +4,12 @@ const { title = "Turning honey-do into honey-done" } = Astro.props;
 ---
 
 <div class="hero-area">
-  <h1>
-    {title}
-  </h1>
-  <div class="description">
-    <slot />
+  <div class="hero-content">
+    <h1>
+      {title}
+    </h1>
+    <div class="description">
+      <slot />
+    </div>
   </div>
 </div>

@@ -1,17 +1,38 @@
 ---
 import "../styles/list.css";
+import Card from './Card.jsx';
 
 const {
   title = "Default",
   list = [],
 } = Astro.props;
+
+const andMore = [{
+    title: "... and more!",
+    icon: "✨",
+    description: [
+      "Flexible services beyond this list",
+      "Custom tasks considered",
+      "Just ask — happy to help!"
+    ]
+  }];
+
+const shuffleArray = (arr) => {
+  const array = [...arr]; // optional: clone if you don't want to mutate original
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
+
 ---
 
 <section class="list-section">
-  <h2 class="title">{title}</h2>
-  <ul>
-    {list.map((item) => (
-      <li class="list-item">{item}</li>
+  <h2 class="title">{title}</h2>  
+  <div class="list-items">
+    {[...shuffleArray(list), ...andMore].map((item, index) => (
+      <Card index={index} details={item} client:load/>      
     ))}
-  </ul>
+  </div>
 </section>

@@ -1,25 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import List from "../components/List.astro";
-import { Image } from "astro:assets";
-import HDHImage from "../images/HDH_Image.png";
+import Hero from "../components/Hero.astro";
 
-const featServices = [
-  "Power washing and basic landscaping",
-  "Drywall repair & painting",
-  "Furniture assembly & installation",
-  "Small renovations & carpentry",
-  "TV mounting & cable management",
-  "Wi-Fi setup & troubleshooting",
-  "Smart doorbells, thermostats, cameras",
-  "Gutter cleaning & home maintenance",
-  "Minor plumbing & electrical work",
-  "Locks, doors, trim repair",  
-  "... and more!"
-];
+import { allServices } from "../data/services.js";
 ---
 
 <Layout title="Home - Honey-Do Heroes">
-  <Image src={ HDHImage } alt="Honey-Do Heroes logo - Turning honey-do into honey-done" class="banner-image" />
-  <List title="Featured Services" list={ featServices } />  
+  <Hero title="Who we are...">
+    <p>
+      Friendly tech help for your home. Whether you need a device connected, a
+      smart system set up, a tough problem solved, or even that new piece of
+      furniture assembled, we make it easy. If it’s unfamiliar technology, we
+      can research the best options and guide you through every step.
+    </p>
+  </Hero>
+  <List title="Featured Services" list={allServices} />
 </Layout>

@@ -2,8 +2,12 @@
 import "../styles/global.css";
 const { title } = Astro.props;
 
+import HDHImage from "../images/HDH_Image.png";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+const pageBgStyle = `url(${HDHImage.src})`;
+
 ---
 
 <!doctype html>
@@ -11,17 +15,29 @@ import Footer from "../components/Footer.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- add a favicon -->
     <link rel="icon" type="image/svg+xml" href="src/images/favicon.png" />
-    <title>{title}</title>
+    <title>{title}</title>    
   </head>
-  <body class="flex flex-col min-h-screen">
+  <body>
+    <style define:vars={{ pageBgStyle }}>
+      body {
+        background-image: var(--pageBgStyle);
+        background-size: cover;
+        background-position: center -100px;
+        background-repeat: no-repeat;
+        backdrop-filter: saturate(30%) contrast(50%) brightness(60%);
+        padding-top: 5px;
+
+        @media (max-width: 720px) {
+          background-size: contain;
+          background-position: center 50px;
+          background-repeat: repeat-y;
+        }
+      }
+    </style>
     <Header />
 
-    <main
-      class="flex flex-col items-center justify-center h-full bg-gray-900 text-white p-4"
-      style="min-height: 70vh;"
-    >
+    <main>
       <slot />
     </main>
 
