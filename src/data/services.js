@@ -1,5 +1,16 @@
 export const allServices = [
   {
+    title: "Mold removal",
+    icon: "🧼",
+    type: "cleaning",
+    description: [
+      "Safe removal of visible mold from affected areas",
+      "Use of proper cleaners and protective precautions",
+      "Reducing moisture sources to help prevent regrowth",
+    ],
+  },
+
+  {
     title: "Shelf and wall fixture installation",
     icon: "🪛",
     type: "fixes",
